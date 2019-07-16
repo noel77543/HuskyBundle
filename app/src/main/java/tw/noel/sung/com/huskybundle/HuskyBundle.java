@@ -46,7 +46,7 @@ public class HuskyBundle {
         }
 
 
-        if (aClass != null) {
+        if (aClass != null && bundle != null) {
 
             // 取得所有宣告變數
             Field[] declaredFields = aClass.getDeclaredFields();
@@ -56,6 +56,7 @@ public class HuskyBundle {
 
                 //如果該變數之Annotation為自定義錨點
                 if (field.isAnnotationPresent(GetValue.class)) {
+                    //取得錨點
                     GetValue getValueAnnotation = field.getAnnotation(GetValue.class);
 
                     //變數名稱
@@ -63,18 +64,17 @@ public class HuskyBundle {
                     //設置的錨點名稱
                     String name = getValueAnnotation.name();
 
-                    if (bundle != null) {
-                        //取得所有bundle的資源
-                        for (String key : bundle.keySet()) {
-                            Object data = bundle.get(key);
-                            //如有指定錨點名稱  || 如沒有指定則直接認物件名稱
-                            if ((!name.equals("") && key.equals(name)) || key.equals(filedName)) {
-                                try {
-                                    field.setAccessible(true);
-                                    field.set(object, data);
-                                } catch (IllegalAccessException e) {
-                                    e.printStackTrace();
-                                }
+
+                    //取得所有bundle的資源
+                    for (String key : bundle.keySet()) {
+                        Object data = bundle.get(key);
+                        //如有指定錨點名稱  || 如沒有指定則直接認物件名稱
+                        if ((!name.equals("") && key.equals(name)) || key.equals(filedName)) {
+                            try {
+                                field.setAccessible(true);
+                                field.set(object, data);
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
                             }
                         }
                     }
