@@ -1,12 +1,12 @@
 # HuskyBundle
 
 
-##用途
+## 用途
 
 	節省接收端麻煩的getIntent or getArgument等取值過程
 
 
-##建立依賴
+## 建立依賴
 
 
 1.build.gradle(Project)
@@ -34,7 +34,7 @@
 
 
 
-##使用方法
+## 使用方法
 
 	在接收端頁面變數加上Annotation - @GetValue
 	並在Activity or Fragment 初始化處呼叫 
@@ -44,7 +44,7 @@
 
 
 
-##情境示例
+## 情境示例
 
 
 
