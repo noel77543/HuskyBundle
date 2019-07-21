@@ -28,7 +28,7 @@
   		  	.
   		  	.
    			.
-  	  implementation 'com.github.noel77543:HuskyBundle:v1.0.3'
+  	  implementation 'com.github.noel77543:HuskyBundle:v1.1.1'
 	}
 
 
