@@ -212,8 +212,6 @@ public class HuskyBundle {
                             bundle.putSerializable(fieldName, (Serializable) object);
 
                         }
-                    }else {
-                        throw new NullPointerException("HuskyBundle : Please Check had set target in your PUT annotation");
                     }
 
                 } catch (IllegalAccessException e) {
