@@ -48,9 +48,9 @@
 
 
 
-[ 情境 1 - MainActivity 傳值 SecondActivity  與 MainActivity 傳值 ThirdActivity]
+[ 情境 - MainActivity 傳值 SecondActivity  與 MainActivity 傳值 ThirdActivity]
 
-    Test1Activity{
+    MainActivity{
 
       //指定目標
       @PutValue(target = "SecondActivity")
@@ -138,7 +138,12 @@
 	
 	
 	
-	
+
+
+
+## 其它
+
+更多使用方式請參閱(範例教學)[https://github.com/noel77543/Demo_HuskyBundle]
 	
 	
 	
