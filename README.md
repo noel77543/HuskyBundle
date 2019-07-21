@@ -50,7 +50,7 @@
 
 [ 情境 1 - MainActivity 傳值 SecondActivity  與 MainActivity 傳值 ThirdActivity]
 
-Test1Activity{
+  Test1Activity{
 
     //指定目標
     @PutValue(target = "SecondActivity")
@@ -88,9 +88,9 @@ Test1Activity{
 	 });   
 	    
     }
-}
+  }
 
-SecondActivity{
+  SecondActivity{
 	
        //加入Annotation
        //須注意接收端變數名稱需與傳送端key值相符  
@@ -109,10 +109,10 @@ SecondActivity{
 
 	
 	}
-}
+  }
 
 
-ThirdActivity{
+  ThirdActivity{
 
        //加入Annotation
        //須注意接收端變數名稱需與傳送端key值相符  
@@ -131,8 +131,7 @@ ThirdActivity{
 	      //但你會發現testModels 是null ，因為在MainActivity時該變數傳送目標並沒有指定ThirdActivity
 
 	}
-
-}	
+  }	
 	
 	
 	
