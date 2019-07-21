@@ -3,7 +3,7 @@
 
 ## 用途
 
-	節省接收端麻煩的getIntent or getArgument等取值過程
+   節省頁面間傳值的put & get
 
 
 ## 建立依賴
@@ -36,6 +36,11 @@
 
 ## 使用方法
 
+        -傳遞-
+        在傳遞端頁面的變數上加上Annotation - @PuttValue(target = "NextActivity")
+	並在進行傳遞時呼叫HuskyBundle.getInstance().take(MainActivity.this, new NextActivity());
+	
+	-接收-
 	在接收端頁面變數加上Annotation - @GetValue
 	並在Activity or Fragment 初始化處呼叫 
 	HuskyBundle.getInstance().inject(this);
