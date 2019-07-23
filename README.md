@@ -123,7 +123,7 @@
          //須注意接收端變數名稱需與傳送端key值相符  
 	@GetValue
 	private ArrayList<TestModel> testModels;
-         //亦可透過標註符"name" 指定為與傳遞端key值相符的名稱後即可任意更改變數名稱
+         //亦可透過標註符"name" 指定為與傳遞端相同的變數名稱後即可任意更改此變數名稱
 	@GetValue(name = "test1")
 	String stringTest;
 	
