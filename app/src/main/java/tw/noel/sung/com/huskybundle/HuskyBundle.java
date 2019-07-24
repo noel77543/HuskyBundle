@@ -96,8 +96,6 @@ public class HuskyBundle {
                     }
                 }
             }
-        } else {
-            throw new NullPointerException("HuskyBundle : Bundle is Null");
         }
     }
 
@@ -145,6 +143,12 @@ public class HuskyBundle {
     public Fragment take(Activity currentActivity, Fragment targetFragment) {
         Class currentClass = currentActivity.getClass();
         Class targetClass = targetFragment.getClass();
+
+        Log.e("H_targetClass",targetClass.getSimpleName());
+        Log.e("H_targetFragment",targetFragment.getClass().getSimpleName());
+
+
+
         targetFragment.setArguments(putValue(currentActivity, currentClass, targetClass));
         return targetFragment;
     }
