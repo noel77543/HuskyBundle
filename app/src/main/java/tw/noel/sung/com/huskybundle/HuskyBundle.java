@@ -118,6 +118,22 @@ public class HuskyBundle {
         currentActivity.startActivity(intent);
     }
 
+    //-------------
+
+    /***
+     *   傳送端 設值  Fragment  to Activity
+     * @param currentFragment  當前Activity
+     * @param targetActivity    目標Activity
+     */
+    public void take(Fragment currentFragment, Activity targetActivity) {
+        Class currentClass = currentFragment.getClass();
+        Class targetClass = targetActivity.getClass();
+
+        Intent intent = new Intent(currentFragment.getActivity(), targetClass);
+        Bundle bundle = putValue(currentFragment, currentClass, targetClass);
+        intent.putExtras(bundle);
+        currentFragment.startActivity(intent);
+    }
 
     //-------------
 
