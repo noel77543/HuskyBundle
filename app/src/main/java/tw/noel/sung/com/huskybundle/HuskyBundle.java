@@ -194,7 +194,9 @@ public class HuskyBundle {
                     //取得設置的錨點之所有名稱
                     List<String> names = Arrays.asList(putValueAnnotation.target());
 
-                    Log.e("H_FiledName",fieldName);
+
+                    Log.e("H_annotation_name", names.get(0));
+                    Log.e("H_target_name", targetClass.getSimpleName());
 
 
                     //如果錨點名稱與目標Activity名稱相同
@@ -222,7 +224,6 @@ public class HuskyBundle {
                         } else if (object instanceof byte[]) {
                             bundle.putByteArray(fieldName, (byte[]) object);
                         } else if (object instanceof Parcelable) {
-                            Log.e("H_bundle","putParcelable");
                             bundle.putParcelable(fieldName, (Parcelable) object);
                         } else if (object instanceof Parcelable[]) {
                             bundle.putParcelableArray(fieldName, (Parcelable[]) object);
