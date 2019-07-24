@@ -143,12 +143,6 @@ public class HuskyBundle {
     public Fragment take(Activity currentActivity, Fragment targetFragment) {
         Class currentClass = currentActivity.getClass();
         Class targetClass = targetFragment.getClass();
-
-        Log.e("H_targetClass",targetClass.getSimpleName());
-        Log.e("H_targetFragment",targetFragment.getClass().getSimpleName());
-
-
-
         targetFragment.setArguments(putValue(currentActivity, currentClass, targetClass));
         return targetFragment;
     }
@@ -197,10 +191,6 @@ public class HuskyBundle {
                     String fieldName = field.getName();
                     //取得設置的錨點之所有名稱
                     List<String> names = Arrays.asList(putValueAnnotation.target());
-
-
-                    Log.e("H_annotation_name", names.get(0));
-                    Log.e("H_target_name", targetClass.getSimpleName());
 
 
                     //如果錨點名稱與目標Activity名稱相同
