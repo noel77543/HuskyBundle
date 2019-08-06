@@ -107,13 +107,18 @@ public class HuskyBundle {
      * @param targetActivity    目標Activity
      */
     public void take(Activity currentActivity, Activity targetActivity) {
-        Class currentClass = currentActivity.getClass();
-        Class targetClass = targetActivity.getClass();
+        currentActivity.startActivity(getIntentFromActivityToActivity(currentActivity,targetActivity));
+    }
 
-        Intent intent = new Intent(currentActivity, targetClass);
-        Bundle bundle = putValue(currentActivity, currentClass, targetClass);
-        intent.putExtras(bundle);
-        currentActivity.startActivity(intent);
+    //-------------
+
+    /***
+     *   傳送端 設值  Activity to Activity
+     * @param currentActivity  當前Activity
+     * @param targetActivity    目標Activity
+     */
+    public void take(Activity currentActivity, Activity targetActivity, int requestCode) {
+        currentActivity.startActivityForResult(getIntentFromActivityToActivity(currentActivity,targetActivity), requestCode);
     }
 
     //-------------
@@ -124,13 +129,18 @@ public class HuskyBundle {
      * @param targetActivity    目標Activity
      */
     public void take(Fragment currentFragment, Activity targetActivity) {
-        Class currentClass = currentFragment.getClass();
-        Class targetClass = targetActivity.getClass();
+        currentFragment.startActivity(getIntentFromFragmentToActivity(currentFragment,targetActivity));
+    }
 
-        Intent intent = new Intent(currentFragment.getActivity(), targetClass);
-        Bundle bundle = putValue(currentFragment, currentClass, targetClass);
-        intent.putExtras(bundle);
-        currentFragment.startActivity(intent);
+    //-------------
+
+    /***
+     *   傳送端 設值  Fragment  to Activity
+     * @param currentFragment  當前Fragment
+     * @param targetActivity    目標Activity
+     */
+    public void take(Fragment currentFragment, Activity targetActivity,int requestCode) {
+        currentFragment.startActivityForResult(getIntentFromFragmentToActivity(currentFragment,targetActivity),requestCode);
     }
 
     //-------------
@@ -162,6 +172,35 @@ public class HuskyBundle {
     }
 
 
+    //-------------
+
+    /***
+     *  intent設置 Activity to  Activity
+     * @param currentFragment
+     * @param targetActivity
+     * @return
+     */
+    private Intent getIntentFromFragmentToActivity(Fragment currentFragment, Activity targetActivity) {
+        Class currentClass = currentFragment.getClass();
+        Class targetClass = targetActivity.getClass();
+        Intent intent = new Intent(currentFragment.getActivity(), targetClass);
+        return intent.putExtras(putValue(currentFragment, currentClass, targetClass));
+    }
+
+    //-------------
+
+    /***
+     *  intent設置 Activity to  Activity
+     * @param currentActivity
+     * @param targetActivity
+     * @return
+     */
+    private Intent getIntentFromActivityToActivity(Activity currentActivity, Activity targetActivity) {
+        Class currentClass = currentActivity.getClass();
+        Class targetClass = targetActivity.getClass();
+        Intent intent = new Intent(currentActivity, targetClass);
+        return intent.putExtras(putValue(currentActivity, currentClass, targetClass));
+    }
     //------------------
 
     /***
